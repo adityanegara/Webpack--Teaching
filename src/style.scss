@@ -1,0 +1,20 @@
+@import "bootstrap";
+$primaryColor : cornflowerblue;
+
+body {
+    background-color: $primaryColor;
+}
+
+#inputOne {
+    background-color: $primaryColor;
+    width: 30vw;
+}
+
+#inputTwo {
+    background-color: $primaryColor;
+    width: 30vw;
+}
+
+#warning {
+    color: red;
+}

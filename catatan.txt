@@ -1,0 +1,77 @@
+A) Sebelum Webpack
+    1) Mengingatkan untuk menginstall extension live server vs code
+    2) Membuat aplikasi penjumlahan sederhana
+    3) Membuat scriptnya
+    4) Membuat vaidasinya.
+    4) Membuat validasinya di file yang berbeda.
+    5) Tunjukkan kalau tidak bisa import.
+    5) Karena javascript murni hanya bisa membaca satu file saja.
+B) Instalasi Webpack
+    1) NPM Init
+        : Menginisialisasi repository baru
+    2) npm install webpack --save-dev
+        : Menginstall library webpack. Webpack ialah library untuk mengumpulkan semua file javascript
+        menjadi satu file.--save-dev berfungsi untuk menandakan library ini 
+        hanya digunakan ketika development saja.
+    3) npm install webpack-cli --save-dev
+        : Menginstall command line interface untuk webpack. agar perintahnya dapat diketikan pada command line.
+C) Import Export Webpack
+    1) buat folder src
+    2) isi dengan file index.js yang mengimport App.js
+    3) buat folder App
+    4) isi dengan file App.js berisikan file perhitungan.
+    5) buat folder utils
+    6) isi dengan file validation.js 
+D) Membuat Webpack configuration
+    1) Buat file webpack.config.js
+    2) update package.json untuk menggunakan configurasi webpack
+        "start" : "webpack --config webpack.config.js"
+    3) build ulang
+    4) jalankan kembali
+E) CSS Loader, SASS loader, dan Style loader
+    1) npm install css-loader sass sass-loader style-loader
+    2) tambahkan pada webpack.config.js
+     module:{
+         rules: [
+             {
+                test: /\.s[ac]ss$/i,
+                use : ["style-loader" ,"css-loader", "sass-loader"]
+             }
+         ]
+     }
+    3) buat file style.scss 
+    4) import pada index.js
+F) Menginstall Bootstrap
+    1) npm install bootstrap
+    2) import bootstrap pada file sass
+    3) ubah warning menggunakan bootstrap
+     
+    <div id="warning" style="display: none;" class="alert alert-danger hidden" role="alert">
+            Invalid Property
+    </div>
+G) Cache Busting dan Plugin
+    1) npm install html-webpack-plugin
+    2) cut index.html ke src/template.html
+    3) update plugins pada webpack.config.js
+    4) menggunakan [contenthash] karena untuk mengupdate file importnya.
+
+H) Copy Webpack Plugin
+    1) Jelaskan kalau untuk mengcopy folder ke dist
+    2) npm install copy-webpack-plugin --save-dev
+    3) buat plugin baru pada webpack.config.js
+    new CopyPlugin({
+        patterns: [
+            {from: "./src/public", to:  path.resolve(__dirname, "dist/public")}
+        ]
+    })],
+    4) tambahkan folder public 
+    5) masukan contoh gamber
+    6) pada template html masukan gambar tersebut
+
+I) Memisahkan Dev dan Production
+    1) npm install webpack-dev-server --save-dev
+    2) npm install webpack-merge --save-dev
+    3) buat webpack.common.js
+    4) buat webpack.dev.js
+    5) buat webpack.prod.js
+    6) Update package.json
